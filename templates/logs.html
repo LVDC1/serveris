@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8" />
+    <title>SMS Logs</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>SMS Logs</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tālrunis</th>
+                <th>Kods</th>
+                <th>Sūtītājs</th>
+                <th>Laiks</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+            <tr>
+                <td>{{ log.id }}</td>
+                <td>{{ log.phone }}</td>
+                <td>{{ log.code }}</td>
+                <td>{{ log.sender }}</td>
+                <td>{{ log.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
 
